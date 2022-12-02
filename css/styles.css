@@ -196,6 +196,14 @@ header {
 	margin: 1em;
 }
 
+*,
+*:before,
+*:after {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
 nav ul {
 	margin: 0;
 	padding: 0;
@@ -213,12 +221,36 @@ nav a {
 	padding: .5em;
 	text-transform: uppercase;
 	color: white;
-	font-size: .8rem;
+	font-size: 14px;
 }
 
-nav a:hover,
-nav a:focus {
-	color: #ddd;
+nav a:before,
+nav a:after {
+	content: "";
+	position: absolute;
+	height: 3px;
+	width: 0%;
+	background-color: #18f08b;
+	transition: 0.5s;
+}
+
+nav a:after {
+	left: 0;
+	bottom: -10px;
+}
+
+nav a:before {
+	right: 0;
+	top: -10px;
+}
+
+nav a: hover {
+	color: #ffffff;
+}
+
+nav a:hover:after,
+nav a:hover:before {
+	width: 100%;
 }
 
 @media (min-width:60rem) {
